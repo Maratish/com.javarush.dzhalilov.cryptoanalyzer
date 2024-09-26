@@ -4,23 +4,8 @@ import java.util.Scanner;
 public class Decryptor {
     public static  void decrypt (){
         StringBuilder decryptedText = new StringBuilder();
-        int key = -1;
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Введите ключ дешифрования(число от 0 до " + (Alphabet.alphabet_Map.size()-1) + "):");
-        while (true) {
-            try {
-                key=scanner.nextInt();
-                if (!(key <= 0 || key > (Alphabet.alphabet_Map.size()-1))) {
-                    break;
-                } else {
-                    System.out.println("Введите число от 0 до " + (Alphabet.alphabet_Map.size()-1));
-                }
-            } catch (InputMismatchException | NumberFormatException e) {
-                scanner.nextLine();
-                System.out.println("Введите число от 0 до " + (Alphabet.alphabet_Map.size()-1));
-            }
-        }
-
+        int key = Validator.validateKey(new Scanner(System.in));
 
         try {
             decryptedText.append(charReplace(FIleManager.readFile().toCharArray(), key));
