@@ -3,27 +3,8 @@ import java.util.Scanner;
 public class Cryptographer {
     public static void encrypt() {
         StringBuilder cryptedText = new StringBuilder();
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Введите ключ шифрования(от 0 до " + (Alphabet.alphabet_Map.size() - 1) + "):");
-        int key = 0;
-        while (true) {
-            String input = scanner.nextLine();
-            if (input.trim().isEmpty() || input.isBlank()) {
-                System.out.println("Введите число от 0 до " + (Alphabet.alphabet_Map.size() - 1));
-                continue;
-            }
-            try {
-                key = Integer.parseInt(input);
-            } catch (NumberFormatException e) {
-                System.out.println("Введите число от 0 до " + (Alphabet.alphabet_Map.size() - 1));
-                continue;
-            }
-            if (!(key <= 0 || key > (Alphabet.alphabet_Map.size() - 1))) {
-                break;
-            } else {
-                System.out.println("Введите число от 0 до " + (Alphabet.alphabet_Map.size() - 1));
-            }
-        }
+        int key = Validator.validateKey(new Scanner(System.in));
 
 
         try {
