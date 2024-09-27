@@ -1,7 +1,6 @@
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Decryptor {
+public class CaesorDecoder {
     public static  void decrypt (){
         StringBuilder decryptedText = new StringBuilder();
         System.out.println("Введите ключ дешифрования(число от 0 до " + (Alphabet.alphabet_Map.size()-1) + "):");
