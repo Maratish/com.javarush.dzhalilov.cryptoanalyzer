@@ -11,6 +11,7 @@ public class FIleManager {
             String s;
             while ((s = bfr.readLine()) != null) {
                 originalText.append(s);
+                originalText.append("\n");
             }
         } catch (Exception e) {
             System.out.println("Ошибка"+e);;
